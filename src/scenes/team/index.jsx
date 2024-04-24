@@ -43,7 +43,7 @@ const Team = () => {
         return (
           <Box
             width="60%"
-            m="0 auto"
+            m="10px 0"
             p="5px"
             display="flex"
             justifyContent="center"
@@ -84,11 +84,12 @@ const Team = () => {
           "& .name-column--cell": {
             color: colors.greenAccent[300],
           },
-          "& .MuiDataGrid-columnHeaders": {
+          "& .MuiDataGrid-columnHeader": {
             backgroundColor: colors.blueAccent[700],
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
+            border: "none",
             backgroundColor: colors.primary[400],
           },
           "& .MuiDataGrid-footerContainer": {
