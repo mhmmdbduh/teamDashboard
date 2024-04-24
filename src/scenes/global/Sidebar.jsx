@@ -22,7 +22,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
   const colors = tokens(theme.palette.mode);
   return (
     <MenuItem
-      active={selected == title}
+      active={selected === title}
       style={{
         color: colors.grey[100],
       }}
@@ -141,7 +141,7 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
-              title="Contact Infoemation"
+              title="Contact Information"
               to="/contacts"
               icon={<ContactsOutlinedIcon />}
               selected={selected}

@@ -1,10 +1,11 @@
+import { useState } from "react";
 import { ColorModeContext, useMode } from "./theme";
 import { CssBaseline, ThemeProvider } from "@mui/material/";
 import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Dashboard from "./scenes/dashboard";
 import Sidebar from "./scenes/global/Sidebar";
-//import Team from "./scenes/team";
+import Team from "./scenes/team";
 //import Invoices from "./scenes/invoices";
 //import Contacts from "./scenes/contacts";
 //import Bar from "./scenes/bar";
@@ -17,26 +18,27 @@ import Sidebar from "./scenes/global/Sidebar";
 
 function App() {
   const [theme, colorMode] = useMode();
+  const [isSidebar, setIsSidebar] = useState(true);
 
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="app">
-          <Sidebar />
+          <Sidebar isSidebar={isSidebar} />
           <main className="content">
-            <Topbar />
+            <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
-              <Route Path="/" element={<Dashboard />} />
-              {/*<Route Path="/team" element={<Team />} />*/}
-              {/*<Route Path="/invoices" element={<Invoices />} />*/}
-              {/*<Route Path="/contacts" element={<Contacts />} />*/}
-              {/*<Route Path="/bar" element={<Bar />} />*/}
-              {/*<Route Path="/form" element={<Form />} />*/}
-              {/*<Route Path="/line" element={<Line />} />*/}
-              {/*<Route Path="/pie" element={<Pie />} />*/}
-              {/*<Route Path="/faq" element={<FAQ />} />*/}
-              {/*<Route Path="/geography" element={<Geography />} />*/}
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/team" element={<Team />} />
+              {/*<Route path="/invoices" element={<Invoices />} />*/}
+              {/*<Route path="/contacts" element={<Contacts />} />*/}
+              {/*<Route path="/bar" element={<Bar />} />*/}
+              {/*<Route path="/form" element={<Form />} />*/}
+              {/*<Route path="/line" element={<Line />} />*/}
+              {/*<Route path="/pie" element={<Pie />} />*/}
+              {/*<Route path="/faq" element={<FAQ />} />*/}
+              {/*<Route path="/geography" element={<Geography />} />*/}
               {/* <Route Path="/calendar" element={<Calendar />} /> */}
             </Routes>
           </main>
